@@ -10,10 +10,14 @@ use App\Users;
 class userController extends Controller
 {
     //
+    public function registerView()
+    {
+    	return view('registerView');
+    }
 	public function index()
 	{
 		$users = Users::All();
-		return view('home')->with('users',$users);
+		return view('index');
 	}
 	public function register(Request $req)
 	{

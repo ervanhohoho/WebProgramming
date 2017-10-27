@@ -12,3 +12,5 @@
 */
 Route::get('/', 'userController@index');
 Route::get('/register', 'userController@register');
+Route::post('/login','userController@login');
+Route::get('/loginView',function(){return view('login');});

@@ -39,4 +39,26 @@ class userController extends Controller
 		return view('home')->with('users',$users);
 
 	}
+	public function login(Request $req)
+	{
+		$email = $req->email;
+		$password = $req->password;
+		$users = Users::All();
+		$flag = false;
+		foreach ($users as $u) {
+			# code...
+			if($u->email == $email)
+				if($u->password == $password)
+					$flag = true;
+		}
+		if($flag == true)
+		{
+			$logged = "true";
+			return view('loginSuccess');
+		}
+		else
+		{
+			return view('login');
+		}
+	}
 }

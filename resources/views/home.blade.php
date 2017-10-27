@@ -23,7 +23,7 @@
 	<input type="text" name="dob" placeholder="DOB"><br>
 	<input type="text" name="address" placeholder="Address"><br>
 	<input type="submit" value = "Register">
-
 </form>
+<a href='/loginView'>click here to login</a>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+@extends('layouts.master')
 <head>
 	<title>Home</title>
 </head>
@@ -10,20 +11,21 @@
 	<br>
 	@endforeach
 @endif
+@yield('navbar')
+	<center>
+	<table border = 0 style = "position: absolute;left: 0;top: 25%; width: 100%;text-align: center;font-size: 18px; z-index: 3;">
+		<form action ="/register" method = "GET">
+			<tr><td><input type= "text" placeholder="name" name="name"></td></tr>
+			<tr><td><input type = "text" placeholder="email" name = "email"></td></tr>
+			<tr><td><input type="password" placeholder="password" name="password"></td></tr>
+			<tr><td><input type="file" name="profilepicture" placeholder="pp"></td></tr>
+			<tr><td><input type="text" name="gender" placeholder="gender"></td></tr>
+			<tr><td><input type="text" name="dob" placeholder="DOB"></td></tr>
+			<tr><td><input type="text" name="address" placeholder="Address"></td></tr>
+			<tr><td><input type="submit" value = "Register"></td></tr>
+		</form>
+		<tr><td><a href='/loginView'>click here to login</a></tr></td>
+	</table>
 
-<form action ="/register" method = "GET">
-	<input type= "text" placeholder="name" name="name">
-	<br>
-	<input type = "text" placeholder="email" name = "email">
-	<br>
-	<input type="password" placeholder="password" name="password">
-	<br>
-	<input type="text" name="profilepicture" placeholder="pp"><br>
-	<input type="text" name="gender" placeholder="gender"><br>
-	<input type="text" name="dob" placeholder="DOB"><br>
-	<input type="text" name="address" placeholder="Address"><br>
-	<input type="submit" value = "Register">
-</form>
-<a href='/loginView'>click here to login</a>
 </body>
 </html>

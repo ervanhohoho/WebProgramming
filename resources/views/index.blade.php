@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+@extends('layouts.master')
   <head>
 
     <meta charset="utf-8">
@@ -20,45 +20,17 @@
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="asset/logo.png" width="30" height="30" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-             <a class="nav-link"><p id="datez"><script>
-function convertDate(inputFormat) {
-  function pad(s) { return (s < 10) ? '0' + s : s; }
-  var d = new Date(inputFormat);
-  return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
-}
-document.getElementById("datez").innerHTML=convertDate(Date());
-</script> </p></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/loginView">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/registerView">Register</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
+   @yield('navbar')
+   <div class = "body-idx">
     <!-- Page Content -->
     <!-- /.container -->
 
     <!-- Bootstrap core JavaScript -->
+     </div>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
+ 
   </body>
 
 </html>

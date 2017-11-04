@@ -24,23 +24,24 @@ class userController extends Controller
 		$name = $req->name;
 		$email = $req->email;
 		$password = $req->password;
-		$profilePicture = $req->profilepicture;
+		//$profilePicture = $req->profilepicture;
 		$gender = $req->gender;
 		$DOB = $req->dob;
 		$address = $req->address;
-
+		$file = $req->profilepicture;
+		dd($file);
 		$users = new Users;
 		$users->name = $name;
 		$users->password = $password;
 		$users->email = $email;
-		$users->profilePicture = $profilePicture;
+		$users->profilePicture = $file;
 		$users->gender = $gender;
 		$users->DOB = $DOB;
 		$users->address = $address;
 
 		$users->save();
 		$users = Users::All();
-		return view('home')->with('users',$users);
+		return view('index')->with('users',$users);
 
 	}
 	public function login(Request $req)

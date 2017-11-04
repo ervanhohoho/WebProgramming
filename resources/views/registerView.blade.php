@@ -2,7 +2,7 @@
 <html>
 @extends('layouts.master')
 <head>
-	<title>Home</title>
+	<title>Register</title>
 </head>
 <body>
 @if(isset($users))
@@ -14,11 +14,11 @@
 @yield('navbar')
 	<center>
 	<table border = 0 style = "position: absolute;left: 0;top: 25%; width: 100%;text-align: center;font-size: 18px; z-index: 3;">
-		<form action ="/register" method = "GET">
+		<form action ="/register" method = "GET" enctype="multipart/form-data">
 			<tr><td><input type= "text" placeholder="name" name="name"></td></tr>
 			<tr><td><input type = "text" placeholder="email" name = "email"></td></tr>
 			<tr><td><input type="password" placeholder="password" name="password"></td></tr>
-			<tr><td><input type="file" name="profilepicture" placeholder="pp"></td></tr>
+			<tr><td><input type="file" name="profilepicture"></td></tr>
 			<tr><td><input type="text" name="gender" placeholder="gender"></td></tr>
 			<tr><td><input type="text" name="dob" placeholder="DOB"></td></tr>
 			<tr><td><input type="text" name="address" placeholder="Address"></td></tr>

@@ -14,12 +14,17 @@
 	<tr><td><input type="text" name="email" placeholder = "email""><br></td></tr>
 	<tr><td><input type = "password" name = "password" placeholder="password"></td></tr>
 	<tr><td><input type="submit"></td></tr>
+	<tr><td>
+	@if(isset($errors))
+		@foreach($errors->all() as $e)
+			{{$e}}
+		@endforeach
+	@endif
+	</td></tr>
 	</table>
 	</div>
 	</center>
 </form>
-@if(isset($status))
-	echo $status
-@endif
+
 </body>
 </html>

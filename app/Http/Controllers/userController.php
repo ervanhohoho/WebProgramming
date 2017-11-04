@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Users;
+use Illuminate\Support\Facades\Validator;
 
 class userController extends Controller
 {
@@ -51,6 +52,9 @@ class userController extends Controller
 		$password = $req->password;
 		$users = Users::All();
 		$flag = false;
+		$val = Validator::make($req->all(),["email => 'required'"]);
+		if($val->fails())
+			return redirect()->back()->withErrors($val);
 		foreach ($users as $u) {
 			# code...
 			if($u->email == $email)

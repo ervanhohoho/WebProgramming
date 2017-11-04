@@ -31,7 +31,7 @@ class userController extends Controller
 		$address = $req->address;
 		$file = $req->profilepicture;
 		$file->move('Uploads',$file->getClientOriginalName());
-		$filep = '/public/Uploads/' . $file->getClientOriginalName();
+		$filep = 'Uploads/' . $file->getClientOriginalName();
 		$users = new Users;
 		$users->name = $name;
 		$users->password = $password;
@@ -52,7 +52,7 @@ class userController extends Controller
 		$password = $req->password;
 		$users = Users::All();
 		$flag = false;
-		$val = Validator::make($req->all(),["email => 'required'"]);
+		$val = Validator::make($req->all(),["email" => 'required', "password"=>'required']);
 		if($val->fails())
 			return redirect()->back()->withErrors($val);
 		foreach ($users as $u) {
@@ -68,7 +68,7 @@ class userController extends Controller
 		}
 		else
 		{
-			return view('login');
+			return view('login')->with('status',"Username or password is wrong");
 		}
 	}
 }

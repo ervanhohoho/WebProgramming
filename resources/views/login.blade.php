@@ -15,11 +15,17 @@
 	<tr><td><input type = "password" name = "password" placeholder="password"></td></tr>
 	<tr><td><input type="submit"></td></tr>
 	<tr><td>
+	<font color = red>
 	@if(isset($errors))
 		@foreach($errors->all() as $e)
 			{{$e}}
+			<br>
 		@endforeach
 	@endif
+	@if(isset($status))
+		{{$status}}
+	@endif
+	</font>
 	</td></tr>
 	</table>
 	</div>

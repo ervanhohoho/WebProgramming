@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Users;
+use App\Shoes;
 
 class shoeController extends Controller
 {
@@ -30,5 +30,10 @@ class shoeController extends Controller
 		$shoes->save();
 		$shoes = Shoes::All();
 		return view('home')->with('users',$users);
+    }
+    public function viewData()
+    {
+		$a = Shoes::Paginate(3); 
+		return view('catalog')->with('data',$a);
     }
 }

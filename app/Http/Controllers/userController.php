@@ -29,12 +29,13 @@ class userController extends Controller
 		$DOB = $req->dob;
 		$address = $req->address;
 		$file = $req->profilepicture;
-		dd($file);
+		$file->move('Uploads',$file->getClientOriginalName());
+		$filep = '/public/Uploads/' . $file->getClientOriginalName();
 		$users = new Users;
 		$users->name = $name;
 		$users->password = $password;
 		$users->email = $email;
-		$users->profilePicture = $file;
+		$users->profilePicture = $filep;
 		$users->gender = $gender;
 		$users->DOB = $DOB;
 		$users->address = $address;

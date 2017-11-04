@@ -6,7 +6,7 @@
 </head>
 <body>
 @yield('navbar')
-<form action="/login" method="POST">
+<form action="/login" method="POST" enctype="multipart/form-data">
 {{csrf_field()}}
 	<center>
 	<table border = 0 style = "position: absolute;left: 0;top: 35%; width: 100%;text-align: center;font-size: 18px; z-index: 3;">

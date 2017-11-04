@@ -14,7 +14,10 @@
 @yield('navbar')
 	<center>
 	<table border = 0 style = "position: absolute;left: 0;top: 25%; width: 100%;text-align: center;font-size: 18px; z-index: 3;">
-		<form action ="/register" method = "GET" enctype="multipart/form-data">
+		<form action ="/register" method = "POST" enctype="multipart/form-data">
+
+		{{csrf_field()}}
+			<tr><td><h1>REGISTER </h1></td></tr>
 			<tr><td><input type= "text" placeholder="name" name="name"></td></tr>
 			<tr><td><input type = "text" placeholder="email" name = "email"></td></tr>
 			<tr><td><input type="password" placeholder="password" name="password"></td></tr>

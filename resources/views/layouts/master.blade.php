@@ -51,5 +51,6 @@ document.getElementById("datez").innerHTML=convertDate(Date());
       </div>
     </nav>
     @show
+
 </body>
 </html>

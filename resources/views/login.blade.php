@@ -6,17 +6,19 @@
 </head>
 <body>
 @yield('navbar')
-<div style= "display: block; overflow: auto; margin-top: 15vw;">
-	<form action="/login" method="POST" enctype="multipart/form-data">
+	<div class="wrapper">
+	<form action="/login" method="POST" enctype="multipart/form-data" class="form-signin">
 	{{csrf_field()}}
-		<center>
-		<table border = 0>
-		<tr><td><center><h1>LOGIN</h1></center></td></tr>
-		<tr><td><input type="text" name="email" placeholder = "email""><br></td></tr>
-		<tr><td><input type = "password" name = "password" placeholder="password"></td></tr>
-		<tr><td><input type="submit"></td></tr>
-		<tr><td>
-		<font color = red>
+      <center><h2 class="form-signin-heading">Login</h2></center>
+      <input type="text" class="form-control" name="email" placeholder="Email" required="" autofocus="" />
+      <br> 
+      <input type="password" class="form-control" name="password" placeholder="Password" required=""/> 
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+      </label>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>   
+      </form>
+  </div>
 		@if(isset($errors))
 			@foreach($errors->all() as $e)
 				{{$e}}
@@ -26,12 +28,5 @@
 		@if(isset($status))
 			{{$status}}
 		@endif
-		</font>
-		</td></tr>
-		</table>
-		</div>
-		</center>
-	</form>
-</div>
 </body>
 </html>

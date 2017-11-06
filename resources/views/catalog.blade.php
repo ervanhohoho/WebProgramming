@@ -1,7 +1,30 @@
 <html lang="en">
 @extends('layouts.master')
 <head>
-    <title>4 Col Portfolio - Start Bootstrap Template</title>
+    <title>Catalogue</title>
+    <style type="text/css">
+        .pagination
+        {
+            text-align: center;
+            display: inline-block;
+            left: 0; right: 0;
+            margin: auto;
+        }
+        .pagination a:hover, a:visited, a:link, a:active
+        {
+            text-decoration: none;
+        }
+        .pagination li 
+        {
+            border: 3px solid rgba(0,0,0,0.1);
+            padding:10px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+            background-color: white;
+            border-radius: 6px;  
+        }
+    </style>
 </head>
 <body>
 
@@ -20,28 +43,27 @@
         <!-- /.row -->
 
         <!-- Projects Row -->
-        <div class="container">
-        <div class="row">
+        <center>
+        <div style = "width: 60vw; margin: 0px 12vw;" align="left">
         @if(isset($data))
 			@foreach($data as $d)
 	            <div class="col-md-3 ml-md-auto">
 	                <a href="#">
-	                	<div style =  " display: table-cell; background-image: url({{$d->image}}); width: 100px; height: 100px; background-size:contain; background-repeat:  no-repeat; text-align: top;">
+	                	<div style =  " display: block; background-image: url({{$d->image}}); background-size:contain; height: 50%; background-repeat:  no-repeat; text-align: top;">
 	                    </div>
-	                     <p style = "display: table-cell; text-align: top; height: 100px"> {{$d->name}}</p>
+	                     <p style = "display: block; text-align: top; height: 100px"> {{$d->name}}</p>
 	                </a>
 	            </div>
 	        <!-- /.row -->
 	        @endforeach
 		@endif
-        </div>
          </div>
+         </center>
+         <br>
         <!-- Pagination -->
-        <center>
-                <ul class="pagination">
-                    {{$data->links()}}
-                </ul>
-        </center>
+        <ul class="pagination" >
+            {{$data->links()}}
+        </ul>
         <!-- /.row -->
     </div>
     <!-- /.container -->

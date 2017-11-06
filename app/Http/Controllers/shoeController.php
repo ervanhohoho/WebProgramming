@@ -33,7 +33,7 @@ class shoeController extends Controller
     }
     public function viewData()
     {
-		$a = Shoes::Paginate(3); 
+		$a = Shoes::Paginate(4); 
 		return view('catalog')->with('data',$a);
     }
 }

@@ -48,8 +48,15 @@ document.getElementById("datez").innerHTML=convertDate(Date());
             </li>
           </ul>
         </div>
-      </div>
+      </div>  
     </nav>
+    <footer class="container-fluid text-center">
+        <div class="fixed-bottom" style="margin-top:25px; background-color:LightGray;">
+            <br>
+            <p>SneakeLLs © 2017| your daily dose | follow us</p> 
+        </div>
+  </footer>
+
     @show
 
 </body>

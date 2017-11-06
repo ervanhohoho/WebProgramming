@@ -1,37 +1,8 @@
 <html lang="en">
 @extends('layouts.master')
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>4 Col Portfolio - Start Bootstrap Template</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/4-col-portfolio.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <style type="text/css">
-	.container-data
-	{
-		position: relative;
-		top: 20px;
-		padding: 10px 70px;
-	}
-    </style>
 </head>
-
 <body>
 
     @yield('navbar')
@@ -49,30 +20,28 @@
         <!-- /.row -->
 
         <!-- Projects Row -->
+        <div class="container">
+        <div class="row">
         @if(isset($data))
 			@foreach($data as $d)
-	        <div class="row">
-	            <div class="col-md-3 portfolio-item">
-	               
+	            <div class="col-md-3 ml-md-auto">
 	                <a href="#">
-	                	<div style =  " display: table-cell; background-image: url({{$d->image}}); width: 100px; height: 100px; background-size:contain; background-repeat:   no-repeat; text-align: top;">
+	                	<div style =  " display: table-cell; background-image: url({{$d->image}}); width: 100px; height: 100px; background-size:contain; background-repeat:  no-repeat; text-align: top;">
 	                    </div>
 	                     <p style = "display: table-cell; text-align: top; height: 100px"> {{$d->name}}</p>
 	                </a>
-	                	
 	            </div>
-	        </div>
 	        <!-- /.row -->
 	        @endforeach
 		@endif
+        </div>
+         </div>
         <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
+        <center>
                 <ul class="pagination">
                     {{$data->links()}}
                 </ul>
-            </div>
-        </div>
+        </center>
         <!-- /.row -->
     </div>
     <!-- /.container -->

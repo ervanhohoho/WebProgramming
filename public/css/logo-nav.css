@@ -38,8 +38,8 @@ input
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;  
 
-  .form-signin-heading,
-    .checkbox {
+
+    .form-signin-heading,.checkbox {
       margin-bottom: 30px;
     }
 

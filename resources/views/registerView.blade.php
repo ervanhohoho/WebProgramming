@@ -22,9 +22,18 @@
 			<tr><td><input type = "text" class="form-control" placeholder="email" name = "email"></td></tr>
 			<tr><td><input type="password" class="form-control" placeholder="password" name="password"></td></tr>
 			<tr><td><input type="file" name="profilepicture"></td></tr>
-			<tr><td><input type="text" class="form-control" name="gender" placeholder="gender"></td></tr>
+			<tr><td width="100%" align="center">
+				<div style="padding: 0 15%; display: inline-block;">
+					<label><input type="radio" class="form-control" name="gender" value = "Male">Male</label>
+				</div>
+				<div style="padding: 0 15%; display: inline-block;">
+					<label><input type="radio" class="form-control" name="gender" value = "Female" style="right: 25%">Female</label>
+				</div>
+			</td></tr>
 			<tr><td><input type="date" class="form-control" name="dob" placeholder="DOB"></td></tr>
 			<tr><td><input type="text" class="form-control" name="address" placeholder="Address"></td></tr>
+			<tr><td align="left">
+				<div align="left" width=100%><input type="checkbox" name="agree" style="width: 20px;">   I Agree to terms and conditions</td></tr></div>
 			<tr><td><input type="submit" class="btn btn-lg btn-primary btn-block" value = "Register"></td></tr>
 		</form>
 		</div>

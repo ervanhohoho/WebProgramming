@@ -40,10 +40,15 @@
         <div class="row">
             <div class="col-lg-12">
                 <center><h1 class="page-header">Catalogue</h1></center>
+                <br>
             </div>
         </div>
         <!-- /.row -->
-
+        <form action="/viewData" method = "GET">
+            <center>
+            <input type="text" name="search" style = "width: 25vw;border-radius: 25px;"> <input type="submit" value = "Search!" style="width: 100px; border-radius: 25px;">
+            </center>
+        </form>
         <!-- Projects Row -->
         <center>
         <div style = "width: 60vw; margin: 0px 12vw;" align="left">

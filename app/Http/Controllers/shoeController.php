@@ -31,9 +31,9 @@ class shoeController extends Controller
 		$shoes = Shoes::All();
 		return view('home')->with('users',$users);
     }
-    public function viewData()
+    public function viewData(Request $req)
     {
-		$a = Shoes::Paginate(4); 
+		$a = Shoes::where('name','like','%'.$req->search.'%')->Paginate(8); 
 		return view('catalog')->with('data',$a);
     }
 }

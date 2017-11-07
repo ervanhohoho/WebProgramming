@@ -18,7 +18,9 @@
   </head>
 
   <body>
-
+        <div id="bg">
+  <img src="../asset/bg.jpg" alt="">
+    </div>
     <!-- Navigation -->
    @yield('navbar')
    <div class = "body-idx">

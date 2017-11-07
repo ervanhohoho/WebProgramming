@@ -16,8 +16,11 @@
         }
         .pagination li 
         {
-            border: 3px solid rgba(0,0,0,0.1);
-            padding:10px;
+            border: 2px solid rgba(0,0,0,0.1);
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
             text-align: center;
             display: inline-block;
             vertical-align: middle;
@@ -36,8 +39,7 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Catalogue
-                </h1>
+                <center><h1 class="page-header">Catalogue</h1></center>
             </div>
         </div>
         <!-- /.row -->

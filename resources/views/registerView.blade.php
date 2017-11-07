@@ -31,7 +31,7 @@
 				</div>
 			</td></tr>
 			<tr><td><input type="date" class="form-control" name="dob" placeholder="DOB"></td></tr>
-			<tr><td><input type="text" class="form-control" name="address" placeholder="Address"></td></tr>
+			<tr><td><textarea name = "Address" placeholder="Address" style="width: 300px;"></textarea></td></tr>
 			<tr><td align="left">
 				<div align="left" width=100%><input type="checkbox" name="agree" style="width: 20px;">   I Agree to terms and conditions</td></tr></div>
 			<tr><td><input type="submit" class="btn btn-lg btn-primary btn-block" value = "Register"></td></tr>

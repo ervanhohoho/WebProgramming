@@ -21,10 +21,10 @@
 
     @section('navbar')
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="/">
+              <a class="navbar-brand" href="/">
           <img src="asset/logo.png" width="30" height="30" alt="">
         </a>
+      <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +32,7 @@
           <ul class="navbar-nav ml-auto">
           <li class="nav-item">
              <a class="nav-link"><p id="datez"><script>
-function convertDate(inputFormat) {
+  function convertDate(inputFormat) {
   function pad(s) { return (s < 10) ? '0' + s : s; }
   var d = new Date(inputFormat);
   return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');

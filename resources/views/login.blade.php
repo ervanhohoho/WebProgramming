@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-@extends('layouts.master')
-<head>
-	<title>Login</title>
-</head>
-<body>
-@yield('navbar')
+@extends('master')
+@section('title')
+	Login
+@endsection('title')
+
+@section('content')
 	<div class="wrapper">
 	<form action="/login" method="POST" enctype="multipart/form-data" class="form-signin">
 	{{csrf_field()}}
@@ -28,5 +28,5 @@
 		@if(isset($status))
 			{{$status}}
 		@endif
-</body>
-</html>
+
+@endsection

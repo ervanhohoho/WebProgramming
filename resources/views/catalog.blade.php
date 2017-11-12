@@ -1,38 +1,9 @@
 <html lang="en">
-@extends('layouts.master')
-<head>
-    <title>Catalogue</title>
-    <style type="text/css">
-        .pagination
-        {
-            text-align: center;
-            display: inline-block;
-            left: 0; right: 0;
-            margin: auto;
-        }
-        .pagination a:hover, a:visited, a:link, a:active
-        {
-            text-decoration: none;
-        }
-        .pagination li 
-        {
-            border: 2px solid rgba(0,0,0,0.1);
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            text-align: center;
-            display: inline-block;
-            vertical-align: middle;
-            background-color: white;
-            border-radius: 6px;  
-        }
-    </style>
-</head>
-<body>
-
-    @yield('navbar')
-
+@extends('master')
+@section('title')
+Catalogue
+@endsection
+@section('content')
     <!-- Page Content -->
     <div class="container-data">
 
@@ -77,5 +48,4 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-</body></html>
+@endsection

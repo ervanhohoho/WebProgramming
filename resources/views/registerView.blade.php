@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-@extends('layouts.master')
-<head>
-	<title>Register</title>
-</head>
-<body>
+@extends('master')
+
+@section('title')
+Register
+@endsection
+@section('content')
 @if(isset($users))
 	@foreach($users as $u)
 	{{$u->name}}
@@ -41,5 +42,4 @@
 	</table>
 	</center>
 </div>
-</body>
-</html>
+@endsection

@@ -36,9 +36,9 @@ Catalogue
          </center>
          <br>
         <!-- Pagination -->
-        <ul class="pagination" >
+        <div style = "width: 100%; text-align: center;">
             {{$data->links()}}
-        </ul>
+        </div>
         <!-- /.row -->
     </div>
     <!-- /.container -->

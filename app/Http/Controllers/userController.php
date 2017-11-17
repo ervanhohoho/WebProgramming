@@ -40,7 +40,7 @@ class userController extends Controller
 		$users->gender = $gender;
 		$users->DOB = $DOB;
 		$users->address = $address;
-
+		$users->role = "User";
 		$users->save();
 		$users = Users::All();
 		return view('index')->with('users',$users);
@@ -50,6 +50,8 @@ class userController extends Controller
 	{
 		$email = $req->email;
 		$password = $req->password;
+		$tuser = new Users;
+		$role = "User";
 		$users = Users::All();
 		$flag = false;
 		$val = Validator::make($req->all(),["email" => 'required', "password"=>'required']);
@@ -58,17 +60,35 @@ class userController extends Controller
 		foreach ($users as $u) {
 			# code...
 			if($u->email == $email)
+			{
 				if($u->password == $password)
+				{
 					$flag = true;
+					$tuser = $u;
+					if($u->role == "Admin")
+						$role = "Admin";
+				}
+			}
 		}
 		if($flag == true)
 		{
 			$logged = "true";
-			return view('loginSuccess');
+			if($tuser->role == "Admin")
+				return redirect()->route('admin',['id'=>$tuser->userId]);
+			else
+				return redirect()->route('user',['id'=>$tuser->userId]);
 		}
 		else
 		{
 			return view('login')->with('status',"Username or password is wrong");
 		}
+	}
+	public function adminPage(Request $req)
+	{
+		return view('admin')->with('id',$req->id);
+	}
+	public function userPage(Request $req)
+	{
+		return view('user')->with('id',$req->id);
 	}
 }

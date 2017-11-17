@@ -20,6 +20,7 @@ class User extends Migration
             $table->string('password');
             $table->string('profilePicture');
             $table->string('gender');
+            $table->string('role');
             $table->date('DOB');
             $table->string('address');
         });

@@ -15,30 +15,7 @@
     <!-- Custom styles for this template -->
     <link href="css/logo-nav.css" rel="stylesheet">
     <style type="text/css">
-        .pagination
-        {
-            text-align: center;
-            display: inline-block;
-            left: 0; right: 0;
-            margin: auto;
-        }
-        .pagination a:hover, a:visited, a:link, a:active
-        {
-            text-decoration: none;
-        }
-        .pagination li 
-        {
-            border: 2px solid rgba(0,0,0,0.1);
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            text-align: center;
-            display: inline-block;
-            vertical-align: middle;
-            background-color: white;
-            border-radius: 6px;  
-        }
+        
     </style>
   </head>
 

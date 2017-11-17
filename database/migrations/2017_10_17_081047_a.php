@@ -18,9 +18,7 @@ class A extends Migration
             $table->string('name');
             $table->string('image');
             $table->string('brandId');
-            $table->foreign('brandId')
-          ->references('brandId')->on('brand')
-          ->onDelete('cascade');
+            $table->integer('brandId');
             $table->string('description');
             $table->integer('price');
             $table->integer('discount');

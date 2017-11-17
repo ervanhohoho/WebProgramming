@@ -8,4 +8,5 @@ class Users extends Model
 {
     //
     public $timestamps = false;
+    protected $primaryKey = 'userId';
 }

@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ShoeBrands extends Model
+class Transaction extends Model
 {
     //
-    public $timestamps = false;
+    public $table = 'Transactions';
 }

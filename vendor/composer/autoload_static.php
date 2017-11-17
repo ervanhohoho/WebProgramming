@@ -779,6 +779,7 @@ class ComposerStaticInit5d40633702ac7c22d33891698165efb0
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'Trans' => __DIR__ . '/../..' . '/database/migrations/2017_11_17_061148_trans.php',
         'User' => __DIR__ . '/../..' . '/database/migrations/2017_10_17_070118_User.php',
     );
 

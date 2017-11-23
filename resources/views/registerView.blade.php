@@ -36,10 +36,10 @@ Register
 			<tr><td align="left">
 				<div align="left" width=100%><input type="checkbox" name="agree" style="width: 20px;">   I Agree to terms and conditions</td></tr></div>
 			<tr><td><input type="submit" class="btn btn-lg btn-primary btn-block" value = "Register"></td></tr>
+				<tr><td><a href='/loginView'>click here to login</a></td></tr>
+				</table>
 		</form>
 		</div>
-		<tr><td><a href='/loginView'>click here to login</a></td></tr>
-	</table>
 	</center>
 </div>
 @endsection

@@ -33,10 +33,10 @@ class shoeController extends Controller
 		$shoes = Shoes::All();
 		return view ('index');
     }
-    public function updateShoeView()
+    public function updateShoeView(Request $req)
     {
-    	$shoes = Shoes::All();
-    	return view('updateShoe',['shoes'=>$shoes]);
+    	$a = Shoes::where('name','like','%'.$req->search.'%')->Paginate(8); 
+        return view('updateShoe')->with('shoes',$a);
     }
     public function updateShoeEditView(Request $req)
     {

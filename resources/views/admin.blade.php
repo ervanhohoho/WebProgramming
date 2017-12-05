@@ -3,6 +3,5 @@
 Admin Page
 @endsection
 @section('content')
-<H1>ADMIN 
-	<br>{{$id}}</H1>
+<br><br><br><H1>ADMIN </H1>
 @endsection

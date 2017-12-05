@@ -30,3 +30,4 @@ Route::post('/doUpdateShoe','shoeController@updateShoe');
 
 Route::get('/insertBrand','brandController@index');
 Route::get('/doInsertBrand','brandController@insertBrand');
+

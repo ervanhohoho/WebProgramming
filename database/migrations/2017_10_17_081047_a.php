@@ -17,7 +17,6 @@ class A extends Migration
             $table->increments('shoesId');
             $table->string('name');
             $table->string('image');
-            $table->string('brandId');
             $table->integer('brandId');
             $table->string('description');
             $table->integer('price');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Shoes;
 use App\Brands;
+use Illuminate\Support\Facades\Validator;
 class shoeController extends Controller
 {
     //
@@ -18,9 +19,27 @@ class shoeController extends Controller
 		$description = $req->description;
 		$price = $req->price;
 		$discount = $req->discount;
-		$image->move('Uploads',$image->getClientOriginalName());
-		
+		$stock = $req->stock;
 		$shoes = new Shoes;
+
+		$val = Validator::make($req->all(),[
+
+			"name"=>'required|min:3',
+			"image"=>'required|mimes:jpg,png',
+			"brandId"=> 'required',
+			"description" => 'required',
+			"price" => 'required|regex:[0-9]',
+			"discount" => 'required|min:0|max:100|regex:[0-9]',
+			"stock" => 'required|min:0|max:100|regex:[0-9]'
+		]);
+
+		if($val->fails())
+		{
+			return redirect()->back()->withErrors($val);
+		}
+
+		$image->move('Uploads',$image->getClientOriginalName());
+
 		$shoes->name = $name;
 		$shoes->image = 'Uploads/'.$image->getClientOriginalName();
 		$shoes->brandId = $brandId;
@@ -28,6 +47,8 @@ class shoeController extends Controller
 		$shoes->price = $price;
 		$shoes->discount = $discount;
 		$shoes->stock = $req->stock;
+
+
 
 		$shoes->save();
 		$shoes = Shoes::All();

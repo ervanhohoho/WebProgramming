@@ -5,21 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Users;
+use App\User;
+use Auth;
 use Illuminate\Support\Facades\Validator;
 
 class userController extends Controller
 {
     //
+    public function index()
+	{
+		if(Auth::check())
+			return redirect('/adminPage');
+		else
+			return view('index');
+	}
     public function registerView()
     {
     	return view('registerView');
     }
-	public function index()
-	{
-		$users = Users::All();
-		return view('index');
-	}
+	
 	public function register(Request $req)
 	{
 		$name = $req->name;
@@ -31,16 +35,16 @@ class userController extends Controller
 		$address = $req->address;
 		$file = $req->profilepicture;
 		
-		$users = new Users;
+		$users = new User;
 
 		$validator = Validator::make($req->all(),
 			[
 				"name" => 'required|min:3',
-				"email" => 'required|unique:posts',
-				"password" => 'required|min:5|regex:[a-zA-Z0-9]',
-				"file" => 'required|mimes:jpg,png',
-				"gender"=>'required|in:male,female',
-				"DOB" => 'required|date_format:yyyy-MM-dd|after:10 years',
+				"email" => 'required',
+				"password" => 'required|min:5',
+				"file" => 'mimes:jpg,png',
+				"gender"=>'required|in:Male,Female',
+				"DOB" => 'date_format:yyyy-MM-dd|after:10 years',
 				"address" => 'required|min:10'
 			]);
 
@@ -52,7 +56,7 @@ class userController extends Controller
 		$file->move('Uploads',$file->getClientOriginalName());
 		$filep = 'Uploads/' . $file->getClientOriginalName();
 		$users->name = $name;
-		$users->password = $password;
+		$users->password = bcrypt($password);
 		$users->email = $email;
 		$users->profilePicture = $filep;
 		$users->gender = $gender;
@@ -117,9 +121,27 @@ class userController extends Controller
 	// 	}
 		
 	// }
+	public function login(Request $req)
+	{
+
+		if (Auth::attempt([
+			'email' => $req->email, 
+			'password' => $req->password])) {
+            // Authentication passed...
+            return redirect('/adminPage');
+        }else
+        {
+        	return redirect('/');
+        }
+	}
 	public function sessionLogin(Request $request, $id)
     {
         $value = $request->session()->get('key', 'default');
+    }
+    public function logout()
+    {
+    	Auth::logout();
+    	return redirect('/');
     }
 	public function adminPage(Request $req)
 	{

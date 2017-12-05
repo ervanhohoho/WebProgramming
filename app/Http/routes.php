@@ -16,6 +16,7 @@ Route::post('/register', 'userController@register');
 Route::post('/login','userController@login');
 Route::get('/registerView','userController@registerView');
 Route::get('/loginView',function(){return view('login');});
+Route::get('/logout','userController@logout');
 
 
 Route::get('/adminPage', 'userController@adminPage')->name('admin');

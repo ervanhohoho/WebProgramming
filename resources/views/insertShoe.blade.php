@@ -35,6 +35,14 @@ Insert Shoes
 	<tr><td><input type="submit" class="btn btn-lg btn-primary btn-block" value="Insert"></td></tr>
 	</table>
 	</form>
+
+			<tr><td>
+			@if(isset($errors))
+			@foreach($errors->all() as $e)
+				{{$e}}<br>
+			@endforeach
+			@endif
+		</td></tr>
 	</center>
 </div>
 @endsection

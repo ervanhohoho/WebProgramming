@@ -8,5 +8,11 @@
 		<input type="text" name="brandName" placeholder = "Brand Name"><br>
 		<input type="submit">
 	</form>
+
+	@if(isset($errors))
+	@foreach($errors->all() as $e)
+	{{$e}}
+	@endforeach
+	@endif
 </body>
 </html>

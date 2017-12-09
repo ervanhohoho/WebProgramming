@@ -28,6 +28,23 @@ class brandController extends Controller
     	}
     	$new->brandName = $req->brandName;
     	$new->save();
-    	return view('index');
+    	return redirect('/');
+    }
+    function updateBrand()
+    {
+        $brands = Brands::All();
+        return view('updateBrand')->with('brands',$brands);
+    }
+    function updateBrandDetail($id)
+    {
+        $brand = Brands::find($id);
+        return view('updateBrandDetail')->with('brand',$brand);
+    }
+    function doUpdateBrand(Request $req)
+    {
+        $temp = Brands::find($req->id);
+        $temp->brandName = $req->brandName;
+        $temp->save();
+        return redirect('/');
     }
 }

@@ -14,8 +14,10 @@ class userController extends Controller
     //
     public function index()
 	{
-		if(Auth::check())
+		if(Auth::check() && Auth::user()->role=="Admin")
 			return redirect('/adminPage');
+		else if(Auth::check() && Auth::user()->role=="User")
+			return redirect('/userPage');
 		else
 			return view('index');
 	}
@@ -64,11 +66,29 @@ class userController extends Controller
 		$users->address = $address;
 		$users->role = "User";
 		$users->save();
-		$users = Users::All();
 		return view('index')->with('users',$users);
 
 	}
-
+	public function insertUser()
+	{
+		return view ('insertUser');
+	}
+	public function updateUser()
+	{
+		$u = User::all();
+		return view('updateUser')->with('users',$u);
+	}
+		public function updateUserDetail($id)
+	{
+		$u = User::find($id);
+		return view('updateUserDetail')->with('user',$u);
+	}
+	public function deleteUser($id)
+	{
+		$u = User::find($id);
+		$u->delete();
+		return redirect('/');
+	}
 	// public function login(Request $req)
 	// {
 	// 	$email = $req->email;

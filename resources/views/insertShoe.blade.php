@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html>
-@extends('master')
+@extends('adminMaster')
 
 @section('title')
 Insert Shoes
 @endsection
 @section('content')
-@if(isset($users))
-	@foreach($users as $u)
-	{{$u->name}}
-	<br>
-	@endforeach
-@endif
-@yield('navbar')
 	<center>
 		<div class="wrapper">
 	<form action = "/doInsertShoe" method = "POST" enctype="multipart/form-data" class="form-signin">

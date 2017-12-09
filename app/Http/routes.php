@@ -17,6 +17,10 @@ Route::post('/login','userController@login');
 Route::get('/registerView','userController@registerView');
 Route::get('/loginView',function(){return view('login');});
 Route::get('/logout','userController@logout');
+Route::get('/insertUser','userController@insertUser');
+Route::get('/updateUser','userController@updateUser');
+Route::get('/updateUserDetail/{id}','userController@updateUserDetail');
+Route::get('/deleteUser/{id}','userController@deleteUser');
 
 
 Route::get('/adminPage', 'userController@adminPage')->name('admin')->middleware('admin');
@@ -31,4 +35,6 @@ Route::post('/doUpdateShoe','shoeController@updateShoe');
 
 Route::get('/insertBrand','brandController@index');
 Route::get('/doInsertBrand','brandController@insertBrand');
-
+Route::get('/updateBrand','brandController@updateBrand');
+Route::get('/updateBrandDetail/{id}','brandController@updateBrandDetail');
+Route::post('/doUpdateBrand','brandController@doUpdateBrand');

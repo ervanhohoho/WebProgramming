@@ -69,17 +69,21 @@ class shoeController extends Controller
     public function updateShoe(Request $req)
     {
     	$id = $req->id;
-    	$shoe = Shoes::where('shoesId', $req->id)->firstOrFail();
+    	$shoe = Shoes::find($req->id);
     	$shoe->name = $req->name;
     	$image = $req->image;
-    	$image->move('Uploads',$image->getClientOriginalName());
-    	$shoe->image = 'Uploads/'.$req->image;
-    	$shoe->brandId = $req->brandId;
+        if(isset($req->image))
+        {
+        	$image->move('Uploads',$image->getClientOriginalName());
+        	$shoe->image = 'Uploads/'.$req->image;
+    	}
+        $shoe->brandId = $req->brandId;
     	$shoe->description = $req->description;
     	$shoe->price = $req->price;
     	$shoe->discount = $req->discount;
     	$shoe->stock = $req->stock;
     	$shoe->save();
+        return redirect('/');
     }
     public function index()
     {

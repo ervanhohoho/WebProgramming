@@ -1,4 +1,5 @@
 @extends('master')
 @section('content')
-User
+<br><br><h1>User</h1><br>
+<a href="/logout">Logout</a>
 @endsection

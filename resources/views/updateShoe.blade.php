@@ -1,5 +1,5 @@
 <html lang="en">
-@extends('master')
+@extends('adminMaster')
 @section('title')
 Update Shoes
 @endsection

@@ -19,7 +19,7 @@ Route::get('/loginView',function(){return view('login');});
 Route::get('/logout','userController@logout');
 
 
-Route::get('/adminPage', 'userController@adminPage')->name('admin');
+Route::get('/adminPage', 'userController@adminPage')->name('admin')->middleware('admin');
 Route::get('/userPage', 'userController@userPage')->name('user');
 
 Route::get('/insertShoe','shoeController@index');

@@ -86,6 +86,7 @@ document.getElementById("datez").innerHTML=convertDate(Date());
     @yield('content')
     <!-- Bootstrap core JavaScript -->
      </div>
+
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

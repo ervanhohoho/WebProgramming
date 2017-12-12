@@ -26,8 +26,8 @@ Catalogue
 	                	<div style =  "display: block; background-image: url({{$d->image}}); background-size:contain; height: 40%; background-repeat:  no-repeat;">
 	                    </div>
 	                     <p align="left" style = "display: block; font-weight: bold;"> {{$d->name}}</p>
-                         <p align="left" style = "display: block;"><strike>harga asli</strike><br>harga diskon<br>Discount : XX%
-                         <input type="button" value = "Display" style="width: 80px; background-color: #3498DB; color:white;" class="form-control"></p>
+                         <p align="left" style = "display: block;"><strike>Rp. {{$d->price}}</strike><br>Rp. {{$d->price * (100-$d->discount) / 100}}<br>Discount : {{$d->discount}}%
+                         <a href="/shoeDetail/{{$d->shoesId}}"><input type="button" value = "Display" style="width: 80px; background-color: #3498DB; color:white;" class="form-control"></a></p>
 	            </div>
 	        <!-- /.row -->
 	        @endforeach

@@ -32,9 +32,13 @@ Route::get('/viewData', 'shoeController@viewData');
 Route::get('/updateShoe','shoeController@updateShoeView');
 Route::get('/updateShoeEdit/{id}','shoeController@updateShoeEditView');
 Route::post('/doUpdateShoe','shoeController@updateShoe');
+Route::get('/shoeDetail/{id}','shoeController@detailShoe');
 
 Route::get('/insertBrand','brandController@index');
 Route::get('/doInsertBrand','brandController@insertBrand');
 Route::get('/updateBrand','brandController@updateBrand');
 Route::get('/updateBrandDetail/{id}','brandController@updateBrandDetail');
 Route::post('/doUpdateBrand','brandController@doUpdateBrand');
+
+Route::get('/addToCart','shoeController@addToCart');
+Route::get('/cart','shoeController@showCart');

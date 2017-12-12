@@ -92,7 +92,30 @@ class shoeController extends Controller
     }
     public function viewData(Request $req)
     {
+        $cart = session('cart');
 		$a = Shoes::where('name','like','%'.$req->search.'%')->Paginate(8); 
 		return view('catalog')->with('data',$a);
+    }
+    public function detailShoe($id)
+    {
+        $shoe = Shoes::find($id);
+        return view('shoeDetail')->with('shoe',$shoe);
+    }
+    public function addToCart(Request $req)
+    {
+        $cart = session('cart');
+        if(!isset($cart[$req->id]))
+            $cart[$req->id]=$req->qty;
+        else
+            $cart[$req->id]=$cart[$req->id]+$req->qty;
+        session(['cart'=>$cart]);
+        return redirect('/cart');
+    }
+
+    public function showCart()
+    {
+        $shoes = Shoes::all();
+        $cart = session('cart');
+        return view('cart')->with('cart',$cart)->with('shoes',$shoes);
     }
 }

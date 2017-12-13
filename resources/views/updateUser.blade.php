@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 @extends('adminMaster')
 @section('title')
 	Insert Brand

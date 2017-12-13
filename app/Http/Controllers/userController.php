@@ -78,10 +78,50 @@ class userController extends Controller
 		$u = User::all();
 		return view('updateUser')->with('users',$u);
 	}
-		public function updateUserDetail($id)
+	public function updateUserDetail($id)
 	{
 		$u = User::find($id);
 		return view('updateUserDetail')->with('user',$u);
+	}
+
+	public function doUpdateUser(Request $req)
+	{
+		$name = $req->name;
+		$email = $req->email;
+		$gender = $req->gender;
+		$DOB = $req->dob;
+		$address = $req->address;
+		$file = $req->picture;
+		
+		$users = User::find($req->id);
+
+		$validator = Validator::make($req->all(),
+			[
+				"name" => 'required|min:3',
+				"email" => 'required',
+				"file" => 'mimes:jpg,png',
+				"gender"=>'required|in:Male,Female',
+				"DOB" => 'date_format:yyyy-MM-dd|after:10 years',
+				"address" => 'required|min:10'
+			]);
+
+		if($validator->fails())
+		{
+			return redirect()->back()->withErrors($validator);
+		}
+		if(isset($file))	
+		{		
+			$file->move('Uploads',$file->getClientOriginalName());
+			$filep = 'Uploads/' . $file->getClientOriginalName();
+			$users->profilePicture = $filep;
+		}
+		$users->name = $name;
+		$users->email = $email;
+		$users->gender = $gender;
+		$users->DOB = $DOB;
+		$users->address = $address;
+		$users->save();
+		return redirect('/');
 	}
 	public function deleteUser($id)
 	{

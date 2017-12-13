@@ -21,6 +21,7 @@ Route::get('/insertUser','userController@insertUser');
 Route::get('/updateUser','userController@updateUser');
 Route::get('/updateUserDetail/{id}','userController@updateUserDetail');
 Route::get('/deleteUser/{id}','userController@deleteUser');
+Route::post('/doUpdateUser','userController@doUpdateUser');
 
 
 Route::get('/adminPage', 'userController@adminPage')->name('admin')->middleware('admin');

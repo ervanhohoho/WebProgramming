@@ -54,11 +54,12 @@ document.getElementById("datez").innerHTML=convertDate(Date());
     
     @yield('content')
 
-    <footer class="container-fluid text-center">
+    <!--
+  <footer class="container-fluid text-center">
         <div class="fixed-bottom" style="margin-top:25px; background-color:LightGray;">
             <br>
             <p>SneakeLLs © 2017| your daily dose | follow us</p> 
         </div>
-  </footer>
+  </footer>-->
 </body>
 </html>

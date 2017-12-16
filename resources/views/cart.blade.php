@@ -1,15 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>CART</title>
-</head>
-<body>
+@extends('adminMaster')
+@section('title')
+	Transaction History
+@endsection('title')
+
+@section('content')
+<br>
+<br>
+	<center>
+	<h1>Transaction History</h1>
 	@if(isset($cart))
 	<form method = "POST" action = "/pay" enctype="multipart/form-data">
 	{{csrf_field()}}
-	<table border="1">
+	<table width="50%">
 		<?php $count = 0?>
-		<tr><th>image</th><th>name</th><th>quantity</th><th>price</th><th>subtotal</th></tr>
+		<tr>
+			<td><p align="center">Image</p></td>
+			<td><p align="center">Name</p></td>
+			<td><p align="center">Quantity</p></td>
+			<td><p align="center">Price</p></td>
+			<td><p align="center">Sub Total</p></td>
+		</tr>
+		<tr>
+				<td colspan="4"><hr></td>
+		</tr>
 		@foreach($cart as $c)
 		<tr>
 			<?php $shoeId = explode('#',$c->cartId) ?>
@@ -21,8 +34,11 @@
 			<td>{{$c->qty}}</td>
 			<td>{{$shoes[$idx]->price - ($shoes[$idx]->price * $shoes[$idx]->discount / 100)}}</td>
 			<td>{{$shoes[$idx]->price - ($shoes[$idx]->price * $shoes[$idx]->discount / 100) * $c->qty}}</td>
-			<td><a href="/deleteCart/{{$shoeId[1]}}">Delete</a></td>
+			<td><a href="/deleteCart/{{$shoeId[1]}}"><p align="center"><input type="button" value = "Delete" style="width: 80px; background-color: #c11717; color:white;" class="form-control"></p></a></td>
 			<?php $count++ ?>
+		</tr>
+		<tr>
+				<td colspan="4"><hr></td>
 		</tr>
 		@endforeach
 		<tr><td><input type="submit" value="submit"></td></tr>

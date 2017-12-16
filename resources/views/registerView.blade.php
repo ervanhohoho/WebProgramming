@@ -40,6 +40,6 @@ Register
 		</table>
 		</form>
 		</div>
-	</center>
 </div>
+	</center>
 @endsection

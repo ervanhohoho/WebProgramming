@@ -8,4 +8,6 @@ class Transaction extends Model
 {
     //
     public $table = 'Transactions';
+    protected $primaryKey = 'transactionId';
+    public $timestamps = false;
 }

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Auth;
 use App\Shoes;
 use App\Brands;
+use App\Cart;
 use Illuminate\Support\Facades\Validator;
 class shoeController extends Controller
 {
@@ -103,19 +105,33 @@ class shoeController extends Controller
     }
     public function addToCart(Request $req)
     {
-        $cart = session('cart');
-        if(!isset($cart[$req->id]))
-            $cart[$req->id]=$req->qty;
-        else
-            $cart[$req->id]=$cart[$req->id]+$req->qty;
-        session(['cart'=>$cart]);
-        return redirect('/cart');
+        if(Auth::check())
+        {
+            $cart = Cart::find(Auth::user()->userId.'#'.$req->id);
+            if(isset($cart))
+            {
+                $cart->qty += $req->qty;
+                $cart->save();
+            }
+            else
+            {
+                $cart = new Cart;
+                $cart->cartId = Auth::user()->userId.'#'.$req->id;;
+                $cart->qty = $req->qty;
+                $cart->save();
+            }
+            return redirect('/cart');
+        }
+
+        return redirect ('/');
     }
 
     public function showCart()
     {
         $shoes = Shoes::all();
-        $cart = session('cart');
-        return view('cart')->with('cart',$cart)->with('shoes',$shoes);
+        $shoesIds = Shoes::all()->pluck('shoesId');
+        $cart = Cart::where('cartId', 'like',Auth::user()->userId.'#%')->get();
+        return view('cart')->with('cart',$cart)->with('shoes',$shoes)->with('shoesIds',$shoesIds);
     }
+
 }

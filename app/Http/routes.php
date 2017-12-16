@@ -41,5 +41,10 @@ Route::get('/updateBrand','brandController@updateBrand');
 Route::get('/updateBrandDetail/{id}','brandController@updateBrandDetail');
 Route::post('/doUpdateBrand','brandController@doUpdateBrand');
 
-Route::get('/addToCart','shoeController@addToCart');
-Route::get('/cart','shoeController@showCart');
+Route::get('/addToCart','transactionController@addToCart');
+Route::get('/cart','transactionController@showCart');
+
+Route::post('/pay','transactionController@pay');
+Route::get('/deleteCart/{id}','transactionController@deleteCart');
+Route::get('/transactionHistory','transactionController@transactionHistory');
+Route::get('/detailTransaction/{id}','transactionController@detailTransaction');

@@ -22,7 +22,7 @@ Route::get('/updateUser','userController@updateUser');
 Route::get('/updateUserDetail/{id}','userController@updateUserDetail');
 Route::get('/deleteUser/{id}','userController@deleteUser');
 Route::post('/doUpdateUser','userController@doUpdateUser');
-
+Route::get('/profile','userController@profile');
 
 Route::get('/adminPage', 'userController@adminPage')->name('admin')->middleware('admin');
 Route::get('/userPage', 'userController@userPage')->name('user');

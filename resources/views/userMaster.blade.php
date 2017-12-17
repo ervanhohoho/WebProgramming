@@ -27,7 +27,7 @@
         </a>
          <ul class="navbar-nav ml-auto">
          <li style = "padding: 0 5px;">
-        <a href="#">Profile
+        <a href="/profile">Profile
       </li>
        <li style = "padding: 0 5px;">
         <a href="/viewData">Shoes

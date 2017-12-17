@@ -8,6 +8,8 @@
 	<table>
 		<form method = "POST" action = "/doUpdateUser" enctype="multipart/form-data">
 			{{csrf_field()}}
+			<?php $start = date('Y-m-d', strtotime('-10 years'))?>
+			<input type="hidden" name="start_date" value = "{{$start}}">
 			<tr><td><h2 class="form-signin-heading"><center>User Edit</center></h2></td></tr>
 			<input type="hidden" name="id" value = "{{$user->userId}}">
 			<tr><td><input type="text" name="name" value="{{$user->name}}"></td></tr>

@@ -103,11 +103,15 @@ class userController extends Controller
 			[
 				"name" => 'required|min:3',
 				"email" => 'required',
-				"file" => 'mimes:jpg,png',
+				"picture" => 'image',
 				"gender"=>'required|in:Male,Female',
-				"DOB" => 'date_format:yyyy-MM-dd|after:10 years',
+				"dob" => 'before:start_date',
 				"address" => 'required|min:10'
-			]);
+			],
+			[
+				"before" => "you must be older than 10 years old"
+			]
+		);
 
 		if($validator->fails())
 		{
@@ -198,9 +202,9 @@ class userController extends Controller
         	return redirect('/');
         }
 	}
-	public function sessionLogin(Request $request, $id)
+	public function profile()
     {
-        $value = $request->session()->get('key', 'default');
+       	return view('profileView');
     }
     public function logout()
     {

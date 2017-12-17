@@ -26,31 +26,15 @@
           <img src="asset/logo.png" width="30" height="30" alt="">
         </a>
          <ul class="navbar-nav ml-auto">
-         <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Shoes
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/insertShoe">Insert Shoes</a></li>
-          <li><a href="/updateShoe">Update Shoes</a></li>
-        </ul>
+         <li style = "padding: 0 5px;">
+        <a href="#">Profile
       </li>
-       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Brand
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href=/insertBrand>Insert Brand</a></li>
-          <li><a href="/updateBrand">Update Brand</a></li>
-        </ul>
+       <li style = "padding: 0 5px;">
+        <a href="/viewData">Shoes
+      </li style = "padding: 0 5px;">
+        <a href="/cart">Cart
       </li>
-       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">User
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/insertUser">Insert User</a></li>
-          <li><a href="/updateUser">Update User</a></li>
-        </ul>
-      </li>
-       <li><a href="#">Transaction</a></li>
+       <li style = "padding: 0 5px;"><a href="/transactionHistory">Transaction</a></li>
         </ul>
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

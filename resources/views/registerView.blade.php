@@ -10,11 +10,14 @@ Register
 		<div class="wrapper">
 		<form action ="/register" method = "POST" enctype="multipart/form-data" class="form-signin">
 		{{csrf_field()}}
+		<?php $start = date('Y-m-d', strtotime('-10 years'))?>
+		<input type="hidden" name="start_date" value = "{{$start}}">
 		<table border = 0 cellpadding="5">
 			<tr><td><h2 class="form-signin-heading"><center>Register</center></h2></td></tr>
 			<tr><td><input type= "text" class="form-control" placeholder="name" name="name"></td></tr>
 			<tr><td><input type = "email" class="form-control" placeholder="email" name = "email"></td></tr>
 			<tr><td><input type="password" class="form-control" placeholder="password" name="password"></td></tr>
+			<tr><td><input type="password" class="form-control" placeholder="password" name="password_confirmation"></td></tr>
 			<tr><td><input type="file" name="profilepicture"></td></tr>
 			<tr><td width="100%" align="center">
 				<div style="padding: 0 15%; display: inline-block;">

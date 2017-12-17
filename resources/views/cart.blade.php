@@ -1,4 +1,4 @@
-@extends('adminMaster')
+@extends('userMaster')
 @section('title')
 	Transaction History
 @endsection('title')

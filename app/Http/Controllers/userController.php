@@ -36,19 +36,23 @@ class userController extends Controller
 		$DOB = $req->dob;
 		$address = $req->address;
 		$file = $req->profilepicture;
-		
+		$start = date('Y-m-d', strtotime('-10 years'));
 		$users = new User;
 
 		$validator = Validator::make($req->all(),
 			[
 				"name" => 'required|min:3',
 				"email" => 'required',
-				"password" => 'required|min:5',
-				"file" => 'mimes:jpg,png',
+				"password" => 'required|min:5|confirmed',
+				"profilepicture" => 'required|file|image',
 				"gender"=>'required|in:Male,Female',
-				"DOB" => 'date_format:yyyy-MM-dd|after:10 years',
+				"dob" => 'required|date|before:start_date',
 				"address" => 'required|min:10'
-			]);
+			],
+			[
+				"before" => 'user must be more than 10 years old'
+			]
+		);
 
 		if($validator->fails())
 		{

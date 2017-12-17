@@ -75,10 +75,21 @@ class transactionController extends Controller
     }
     public function transactionHistory()
     {
-    	$transactions = Transaction::all();
-    	$users = User::all();
-    	$userids = User::all()->pluck('userId');
-    	return view('transactionHistory')->with('transactions',$transactions)->with('users',$users)->with('userids',$userids);
+        $role = Auth::user()->role;
+        if($role == "Admin")
+    	{
+            $transactions = Transaction::all();
+            $users = User::all();
+            $userids = User::all()->pluck('userId');
+            return view('transactionHistoryAdmin')->with('transactions',$transactions)->with('users',$users)->with('userids',$userids)->with('role',$role);
+        }
+        else
+        {
+            $transactions = Transaction::where('userId',Auth::user()->userId)->get();
+            $users = User::all();
+            $userids = User::all()->pluck('userId');
+            return view('transactionHistoryUser')->with('transactions',$transactions)->with('users',$users)->with('userids',$userids)->with('role',$role);
+        }
     }
     public function detailTransaction($id)
     {

@@ -1,5 +1,5 @@
 <html lang="en">
-@extends('master')
+@extends('userMaster')
 @section('title')
 Catalogue
 @endsection

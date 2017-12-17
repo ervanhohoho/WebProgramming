@@ -33,7 +33,7 @@
 			<input type="hidden" name="shoesId[{{$count}}]" value = "{{$shoeId[1]}}">
 			<input type="hidden" name="qty[{{$count}}]" value = "{{$c->qty}}">
 			<?php $totalqty += $c->qty ?>
-			<?php $totalprice += $shoes[$idx]->price - ($shoes[$idx]->price * $shoes[$idx]->discount / 100) ?>
+			<?php $totalprice += ($shoes[$idx]->price - ($shoes[$idx]->price * $shoes[$idx]->discount / 100)) * $c->qty ?>
 			<td width="30%"><center><img src="../{{$shoes[$idx]->image}}" height="30%"></center></td>
 			<td><p align="center">{{$shoes[$idx]->name}}</p></td>
 			<td><p align="center">{{$c->qty}}</p></td>

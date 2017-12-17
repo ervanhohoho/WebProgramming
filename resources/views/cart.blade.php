@@ -38,7 +38,7 @@
 			<td><p align="center">{{$shoes[$idx]->name}}</p></td>
 			<td><p align="center">{{$c->qty}}</p></td>
 			<td><p align="center">{{$shoes[$idx]->price - ($shoes[$idx]->price * $shoes[$idx]->discount / 100)}}</p></td>
-			<td><p align="center">{{$shoes[$idx]->price - ($shoes[$idx]->price * $shoes[$idx]->discount / 100) * $c->qty}}</p></td>
+			<td><p align="center">{{($shoes[$idx]->price - ($shoes[$idx]->price * $shoes[$idx]->discount / 100)) * $c->qty}}</p></td>
 			<td><a href="/deleteCart/{{$shoeId[1]}}"><p align="center"><input type="button" value = "Delete" style="width: 80px; background-color: #c11717; color:white;" class="form-control"></p></a></td>
 			<?php $count++ ?>
 		</tr>

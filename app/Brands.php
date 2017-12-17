@@ -9,4 +9,5 @@ class Brands extends Model
     //
 	public $table = 'brand';
 	public $timestamps = false;
+	protected $primaryKey = 'brandId';
 }

@@ -98,4 +98,9 @@ class transactionController extends Controller
     	$shoesids = Shoes::all()->pluck('shoesId');
     	return view('detailTransaction')->with('details',$details)->with('shoes',$shoes)->with('shoesids',$shoesids);
     }
+    public function deleteTransaction($id)
+    {
+        Transaction::where('transactionId',$id)->delete();
+        return redirect()->back();
+    }
 }

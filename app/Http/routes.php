@@ -48,3 +48,4 @@ Route::post('/pay','transactionController@pay');
 Route::get('/deleteCart/{id}','transactionController@deleteCart');
 Route::get('/transactionHistory','transactionController@transactionHistory');
 Route::get('/detailTransaction/{id}','transactionController@detailTransaction');
+Route::get('/deleteTransaction/{id}','transactionController@deleteTransaction');

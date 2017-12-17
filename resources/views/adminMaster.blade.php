@@ -50,7 +50,7 @@
           <li><a href="/updateUser">Update User</a></li>
         </ul>
       </li>
-       <li><a href="#">Transaction</a></li>
+       <li><a href="/transactionHistory">Transaction</a></li>
         </ul>
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

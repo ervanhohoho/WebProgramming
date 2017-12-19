@@ -16,17 +16,22 @@
       <tr><td width="100%">
         <div style="width: 10px; display: inline-block;" align = "left"><input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" style="width: 10px; display: inline-block;"></div> <p style="display: inline-block;">Remember me</p>
       </td></tr>
-      <tr><td><button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button></td></tr>
-      </form>
-  </div>
-		@if(isset($errors))
+      <tr>
+      	<td>
+      		@if(isset($errors))
 			@foreach($errors->all() as $e)
 				{{$e}}
 				<br>
 			@endforeach
-		@endif
-		@if(isset($status))
-			{{$status}}
-		@endif
+			@endif
+			@if(isset($status))
+				{{$status}}
+			@endif
+      	</td>
+      </tr>
+      <tr><td><button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button></td></tr>
+      </form>
+  </div>
+		
 
 @endsection

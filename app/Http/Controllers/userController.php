@@ -129,7 +129,8 @@ class userController extends Controller
 		$users->DOB = $DOB;
 		$users->address = $address;
 		$users->save();
-		return redirect('/');
+		$users = User::all();
+		return redirect('/updateUser')->with('users',$users);
 	}
 	public function deleteUser($id)
 	{
@@ -199,7 +200,8 @@ class userController extends Controller
             return redirect('/adminPage');
         }else
         {
-        	return redirect('/');
+        	$status = "Username or password is wrong";
+        	return redirect()->back()->with('status',$status);
         }
 	}
 	public function profile()

@@ -71,7 +71,7 @@ class transactionController extends Controller
     public function deleteCart($id)
     {
     	Cart::where('cartId',Auth::user()->userId.'#'.$id)->delete();
-    	return redirect('/');
+    	return redirect()->back();
     }
     public function transactionHistory()
     {

@@ -9,7 +9,7 @@
 @section('content')
 	<center>
 	<div class="wrapper">
-	<form method="GET" action="/addToCart" class="form-signin" style="  max-width: 600px;
+	<form method="GET" action="/addToCart" class="form-signin" style="  max-width: 600px;">
 		<input type="hidden" name="id" value="{{$shoe->shoesId}}">
 	<table>
 		<tr><td colspan="6"><h2 class="form-signin-heading"><center>{{$shoe->name}}</center></h2></td></tr>

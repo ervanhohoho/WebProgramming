@@ -27,12 +27,12 @@ class shoeController extends Controller
 		$val = Validator::make($req->all(),[
 
 			"name"=>'required|min:3',
-			"image"=>'required|mimes:jpg,png',
-			"brandId"=> 'required',
+			"image"=>'required|image',
+			"brandId"=> 'min:0',
 			"description" => 'required',
-			"price" => 'required|regex:[0-9]',
-			"discount" => 'required|min:0|max:100|regex:[0-9]',
-			"stock" => 'required|min:0|max:100|regex:[0-9]'
+			"price" => 'required',
+			"discount" => 'required|min:0|max:100',
+			"stock" => 'required|min:0|max:100'
 		]);
 
 		if($val->fails())
@@ -85,7 +85,7 @@ class shoeController extends Controller
     	$shoe->discount = $req->discount;
     	$shoe->stock = $req->stock;
     	$shoe->save();
-        return redirect('/');
+        return redirect('/updateShoe');
     }
     public function index()
     {

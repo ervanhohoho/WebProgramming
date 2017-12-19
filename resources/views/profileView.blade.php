@@ -15,7 +15,7 @@ Profile
 		<input type="hidden" name="id" value = "{{Auth::user()->userId}}">
 		<table border = 0 cellpadding="5">
 			<tr><td><h2 class="form-signin-heading"><center>Profile</center></h2></td></tr>
-			<tr><td><img src="../{{Auth::user()->profilePicture}}" height = "30%" align="center"></td></tr>
+			<tr><td><img src="../{{Auth::user()->profilePicture}}" width = "300" align="center"></div></td></tr>
 			<tr><td><input type= "text" class="form-control" value="{{Auth::user()->name}}" name="name"></td></tr>
 			<tr><td><input type = "email" class="form-control" value="{{Auth::user()->email}}" name = "email"></td></tr>
 			<tr><td><input type="file" name="picture"></td></tr>
@@ -40,6 +40,8 @@ Profile
 			<tr><td><textarea name = "address" style="width: 100%;">{{Auth::user()->address}}</textarea></td></tr>
 			<tr><td><input type="submit" class="btn btn-lg btn-primary btn-block" value = "Edit Profile"></td></tr>
 				<tr><td>
+
+			<!-- untuk menunjukkan error -->
 			@if(isset($errors))
 			@foreach($errors->all() as $e)
 				{{$e}}<br>
